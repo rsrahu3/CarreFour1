@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home Component Screen test form check 1`] = `
+<ContextProvider
+  value={null}
+>
+  <HomeComponent
+    data={
+      Array [
+        Object {
+          "employee_age": "23",
+          "employee_name": "test65",
+          "employee_salary": "123",
+          "id": "142591",
+          "profile_image": "",
+        },
+        Object {
+          "employee_age": "23",
+          "employee_name": "mz/x",
+          "employee_salary": "123",
+          "id": "142593",
+          "profile_image": "",
+        },
+        Object {
+          "employee_age": "22",
+          "employee_name": "MMODD66ttt",
+          "employee_salary": "80",
+          "id": "142594",
+          "profile_image": "",
+        },
+        Object {
+          "employee_age": "25",
+          "employee_name": "bew",
+          "employee_salary": "200000",
+          "id": "142603",
+          "profile_image": "",
+        },
+      ]
+    }
+    showData={[Function]}
+    store={
+      Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      }
+    }
+  />
+</ContextProvider>
+`;
