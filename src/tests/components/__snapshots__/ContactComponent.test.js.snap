@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ContactComponent Screen test form check 1`] = `
+<div>
+  <Header
+    active="contact"
+  />
+  This is Contact Component
+</div>
+`;
