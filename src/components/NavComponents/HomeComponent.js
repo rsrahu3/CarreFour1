@@ -1,51 +1,66 @@
-import * as React from 'react'
-import Header from './../common/Header'
-import { connect } from 'react-redux'
-import thunk from './../../middleware/thunk'
+import * as React from "react";
+import Header from "./../common/Header";
+import { connect } from "react-redux";
+import thunk from "./../../middleware/thunk";
+import TableComponent from "./../TableComponent";
+import $ from 'jquery';
 
-class HomeComponent extends React.Component {
-  componentDidMount () {
-    this.props.showData()
+class HomeComponent extends React.PureComponent {
+  componentDidMount() {
+    if (this.props.data.length === 0) this.props.showData();
   }
 
-  render () {
-    return <div id="headerDiv" >
-      <Header active="home"/>
-      <table className="table">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>NAME</th>
-            <th>SALARY</th>
-            <th>AGE</th>
-          </tr>
-        </thead>
-        <tbody>
-          {this.props.data.map((item) => {
-            return (<tr key={item.id}>
+  render() {
+    if (!this.props.showLoader) {
+        $( ".alert" ).fadeIn( 300 ).delay( 1500 ).fadeOut( 400 );
+    }
 
-              {Object.keys(item).map(element => {
-                return (<td key={element}>{item[element]}</td>)
-              })}
-
-            </tr>)
-          })}
-        </tbody>
-      </table>
+    if (this.props.showLoader) {
+      return (
+        <div id="headerDiv">
+         <center>
+          <div
+            style={{position:'fixed',display:'block',zIndex:1,marginLeft:'28%'}} className="alert alert-warning alert-dismissible show"
+            role="alert"
+          >
+            <strong>Holy guacamole!</strong> You should check in on some of
+            those fields below.
+          </div>
+          </center>
+          <Header active="home" />
+        </div>
+      );
+    } else {
+      return (
+        <div id="headerDiv">
+          <Header active="home" />
+          <TableComponent data={this.props.data} />
           This is Home Component
-    </div>
+        </div>
+      );
+    }
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
-    data: state.data
-  }
-}
-const mapDispatchToProps = (dispatch) => {
+    data: state.data,
+    showLoader: state.showLoader
+  };
+};
+const mapDispatchToProps = dispatch => {
   return {
-    showData: () => dispatch(thunk({ url: 'http://dummy.restapiexample.com/api/v1/employees', type: 'populate_data' }))
-  }
-}
+    showData: () =>
+      dispatch(
+        thunk({
+          url: "http://dummy.restapiexample.com/api/v1/employees",
+          type: "populate_data"
+        })
+      )
+  };
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomeComponent)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(HomeComponent);

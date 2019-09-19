@@ -1,21 +1,18 @@
+import axios from 'axios';
+//import history from './../components/common/history';
+
 const thunk =  ({url,type})=> {
   return dispatch => {
-     fetch(url)
+     dispatch({ type: 'show_loader',payload:{data:true}});
+     axios.get(url)
       .then(response => {
-        if (!response.ok) {
-          throw Error(response.statusText);
-        }
-        return response
+        //history.push('/about');
+        dispatch({ type: 'show_loader',payload:{data:false}});
+        //console.log(response);
+        dispatch({ type, payload: { data: response.data } });
+       
       })
-      .then(response => response.json())
-      .then(items =>{
-        dispatch({ type, payload: { data: items } })
-      }
-     
-      )
-      .catch(() => {
-        throw Error('Error')
-      })
+
   }
 }
 

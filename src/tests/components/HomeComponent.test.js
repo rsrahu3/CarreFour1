@@ -1,9 +1,8 @@
 import React from 'react';
 import {shallow,configure} from 'enzyme';
 import HomeComponent from './../../components/NavComponents/HomeComponent';
-import Adapter from 'enzyme-adapter-react-16';
+import config from './configuartion';
 import configureStore from 'redux-mock-store'
-configure({ adapter: new Adapter() });
 import toJson from 'enzyme-to-json';
 
 const initialState = {
@@ -22,14 +21,10 @@ beforeEach(() => {  //creates the store with any initial state or middleware nee
   store = mockStore(initialState)
  })
 
-
-
-
 describe("Home Component Screen test",()=>{
     it('form check',()=>{
        wrapper = shallow(<HomeComponent store={store}/>)
          expect(toJson(wrapper).children[0].node.props.data.length).toBe(4);
          expect(toJson(wrapper)).toMatchSnapshot();
     })
-    
 })

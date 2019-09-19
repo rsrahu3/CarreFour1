@@ -1,9 +1,13 @@
-import * as React from 'react'
+import * as React from 'react';
+import history from './common/history';
 
 export default class LoginComponent extends React.Component {
+  formSubmit = (e)=>{
+    history.push("/home");
+  }
   render () {
     return (<div>
-      <form action="/home" style={{ width: '30%', padding: '20px' }}>
+      <form onSubmit={this.formSubmit} style={{ width: '30%', padding: '20px' }}>
         <div className="form-group">
           <label>Email address:</label>
           <input type="email" required className="form-control" id="email"/>
