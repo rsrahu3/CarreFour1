@@ -5,9 +5,11 @@ export default class TableComponent extends React.Component{
     constructor(props){
         super(props);
         console.log("Constructor");
+        this.state = {};
     }
     static getDerivedStateFromProps(){
         console.log("getDerivedStateFromProps");
+        return null;
     }
     shouldComponentUpdate(){
         console.log("shouldComponentUpdate");
@@ -19,9 +21,9 @@ export default class TableComponent extends React.Component{
     componentDidMount(){
         console.log("componentDidMount");
     }
-    componentWillReceiveProps(){
-        console.log("componentWillReceiveProps");
-    }
+    // componentWillReceiveProps(){
+    //     console.log("componentWillReceiveProps");
+    // }
     render(){
         return (<table className="table">
         <thead>

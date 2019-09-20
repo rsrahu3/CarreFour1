@@ -2,6 +2,7 @@
 
 exports[`ContactComponent Screen test form check 1`] = `
 <div>
+  <topHeader />
   <Header
     active="contact"
   />

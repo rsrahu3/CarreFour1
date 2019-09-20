@@ -1,0 +1,32 @@
+   .header{
+        width:100%;
+        background-color:#374357;
+        height: calc(25% - 50px);
+        color:wheat;
+        line-height: 70px;
+        text-align: center;
+        font-size: 28px;
+       /* position: absolute;*/
+    }
+    .form{
+        width: 100%;
+        display:flex;
+        justify-content:center
+    }
+     html,body,#root,#mainDiv,#login{
+        height:100%;
+    }
+    .waitAlert{
+        position: fixed;
+        display: block;
+        z-Index: 1;
+        margin-Left: 45vw;
+        margin-Top:50vh;
+      }
+
+      table th {
+        position: sticky;
+        top: 0;
+        z-index: 5;
+        background: #fff;
+    }
