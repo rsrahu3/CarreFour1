@@ -19,7 +19,7 @@ class HomeComponent extends React.PureComponent {
             className="waitAlert alert alert-warning alert-dismissible show"
             role="alert"
           >
-            Please Wait ......
+            Please Wait Rahul......
           </div>
         </center>
       </div>
