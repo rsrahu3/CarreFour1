@@ -1,28 +1,79 @@
 import * as React from 'react';
 import history from './common/history';
-import TopHeader from  './common/TopHeader';
+import TopHeader from './common/TopHeader';
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 
-export default class LoginComponent extends React.Component {
-  formSubmit = (e)=>{
-    history.push("/home");
+const useStyles = makeStyles(theme => ({
+  button: {
+    margin: theme.spacing(1)
+  },
+  input: {
+    display: 'none'
+  },
+  container: {
+    display: 'flex',
+    flexWrap: 'wrap'
+  },
+  textField: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
+    width: 200
+  },
+  dense: {
+    marginTop: 19
+  },
+  menu: {
+    width: 200
   }
-  render () {
-    return (<div id="login">
-    <TopHeader/>
-    <div className="form">
-      <form onSubmit={this.formSubmit} style={{ width: '30%', padding: '20px' }}>
-        <div className="form-group">
-          <label>Email address:</label>
-          <input type="email" required className="form-control" id="email"/>
-        </div>
-        <div className="form-group">
-          <label>Password:</label>
-          <input type="password" required className="form-control" id="password"/>
-        </div>
-        <button type="submit" className="btn btn-default">Submit</button>
-      </form>
+}));
+
+export default function LoginComponent() {
+  const classes = useStyles();
+  const formSubmit = () => {
+    history.push('/home');
+  };
+  return (
+    <div id="login">
+      <TopHeader />
+      <div className="form">
+        <form
+          id="loginForm"
+          onSubmit={formSubmit}
+          style={{ width: '30%', padding: '20px' }}
+        >
+          <div className="form-group">
+            <TextField
+              id="standard-email-input"
+              label="Email"
+              className={classes.textField}
+              type="email"
+              margin="normal"
+              required
+            />
+          </div>
+          <div className="form-group">
+            <TextField
+              id="standard-password-input"
+              label="Password"
+              className={classes.textField}
+              type="password"
+              autoComplete="current-password"
+              margin="normal"
+              required
+            />
+          </div>
+          <Button
+            variant="contained"
+            color="primary"
+            className={classes.button}
+            type="submit"
+          >
+            Submit
+          </Button>
+        </form>
+      </div>
     </div>
-    </div>
-    )
-  }
+  );
 }

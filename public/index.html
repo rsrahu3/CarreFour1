@@ -2,9 +2,20 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./commonCss.css">
- 
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="./commonCss.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
@@ -26,9 +37,11 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <link rel = "icon" href =  
-    "https://www.geeksforgeeks.org/wp-content/uploads/gfg_200X200.png" 
-            type = "image/x-icon"> 
+    <link
+      rel="icon"
+      href="https://www.geeksforgeeks.org/wp-content/uploads/gfg_200X200.png"
+      type="image/x-icon"
+    />
     <title>Mackensy</title>
   </head>
   <body>
@@ -44,5 +57,33 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-analytics.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: 'AIzaSyDACQsvM3Mpoqje1vaC0jPsjhDz6Ae36ks',
+        authDomain: 'fir-test-aaf86.firebaseapp.com',
+        databaseURL: 'https://fir-test-aaf86.firebaseio.com',
+        projectId: 'fir-test-aaf86',
+        storageBucket: '',
+        messagingSenderId: '169111696217',
+        appId: '1:169111696217:web:543ba9c148b42283de5248',
+        measurementId: 'G-D906T5TR2J'
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+      firebase.analytics().logEvent('select_content', {
+        content_type: 'image',
+        content_id: 'P12453',
+        items: [{ name: 'Kittens' }]
+      });
+    </script>
   </body>
 </html>
