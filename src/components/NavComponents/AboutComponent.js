@@ -18,6 +18,7 @@ const AboutComponent = () => {
       {constants.aboutData}
       <br />
       {t('Welcome to React')}
+      Hello
       <br />
       <Trans>Welcome to React</Trans>
       <button onClick={e => changeLanguage('de')}>de</button>
