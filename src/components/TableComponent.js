@@ -13,7 +13,7 @@ class TableComponent extends React.Component {
   };
 
   render() {
-    console.log(this.props.data);
+    console.log(this.props.data.toString());
     return (
       <table className="table">
         <thead>
@@ -27,7 +27,7 @@ class TableComponent extends React.Component {
           </tr>
         </thead>
         <tbody>
-          {this.props.data.map(item => {
+          {this.props.data && this.props.data.map(item => {
             return (
               <tr key={item.id}>
                 {Object.keys(item).map(element => {

@@ -1,7 +1,7 @@
 const homeReducer = (state = { data: [] }, action) => {
   switch (action.type) {
     case 'populate_data':
-      return { ...state, data: action.payload.data };
+      return { ...state, data: action.payload.data.data };
     case 'show_loader':
       return { ...state, showLoader: action.payload.data };
     case 'edit_record':
