@@ -47,6 +47,7 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    We have to move class based components to hooks based components
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
@@ -75,15 +76,15 @@
         messagingSenderId: '169111696217',
         appId: '1:169111696217:web:543ba9c148b42283de5248',
         measurementId: 'G-D906T5TR2J'
-      };
+      }
       // Initialize Firebase
-      firebase.initializeApp(firebaseConfig);
-      firebase.analytics();
+      firebase.initializeApp(firebaseConfig)
+      firebase.analytics()
       firebase.analytics().logEvent('select_content', {
         content_type: 'image',
         content_id: 'P12453',
         items: [{ name: 'Kittens' }]
-      });
+      })
     </script>
   </body>
 </html>
